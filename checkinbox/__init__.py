@@ -84,10 +84,7 @@ def checkInboxes (
 				mx = { 0: domain }
 
 			result[a] = _connectAndCheck(a, mx, opts)
-		except (
-				dns.exception.DNSException,
-				smtplib.SMTPException,
-				PermissionError) as e:
+		except Exception as e:
 			err[a] = e
 
 	return (result, err)
